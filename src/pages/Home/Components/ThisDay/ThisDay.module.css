@@ -1,0 +1,38 @@
+@import '../../../../styles/variables.css';
+
+.this_day {
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  background: var(--components-background-default);
+  /* смена темы, нужно сменить бэк, тень и радиус */
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  border-radius: 20px;
+}
+
+.top_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.this_temp {
+  font-size: 96px;
+  font-weight: 500;
+  color: #4793ff;
+  /* колор из переменных */
+}
+
+.this_day_name {
+  font-size: 40px;
+  color: var(--text-color-default);
+}
+
+.this_time,
+.this_city {
+  color: #939cb0;
+  /* колор из переменной */
+  font-size: 25px;
+}

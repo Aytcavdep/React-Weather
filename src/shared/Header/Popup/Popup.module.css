@@ -1,0 +1,72 @@
+.popup {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 325px);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 750px;
+    width: 100%;
+    background: var(--components-background-default);
+    /* Бэк из переменной */
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    border-radius: 20px;
+  }
+
+  .blur {
+      position: absolute;
+      z-index: 1000;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.25);
+
+  }
+
+  .close {
+      position: absolute;
+      top: 20px;
+
+      right: 20px;
+      rotate: 360%;
+
+  }
+
+  .close:hover > svg {
+transform: rotate(360deg)
+  }
+
+  .day_temp, .day {
+       font-weight: 500;
+       font-size: 60px;
+       color: #4793ff;
+       /* переменная праймори колор */
+       margin-bottom: 12px;
+  }
+
+  .day_name {
+    font-size: 25px;
+    line-height: 30px;
+    color: var(--text-color-default);
+    margin-bottom: 12px;
+  }
+
+/* svg {
+      width: 53px;
+      height: 53px;
+      margin-bottom: 12px;
+  } */
+
+  .close > svg {
+    transition: 0.3s;
+    width: 18px;
+      height: 18px;
+}
+
+  .day_time, .day_city {
+    font-size: 15px;
+    color:#939cb0;
+    /* из переменной бейс колор */
+  }
+
