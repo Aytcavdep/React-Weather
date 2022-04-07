@@ -2,6 +2,7 @@ import axios from "axios";
 import { appid } from "../Private/WeatherKey";
 
 export class WeatherService {
+
   static async getCurrentWeather(city) {
     const responce = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=ru&appid=${appid}`
