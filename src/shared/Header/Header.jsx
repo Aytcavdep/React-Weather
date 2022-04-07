@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
 import Select from "react-select";
 import { GlobalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector";
 import { useTheme } from "../../hooks/useTheme";
 import s from "./Header.module.css";
+import { storage } from "../../model/Storage";
+import { fetchCurrentWeatherSucces } from "../../store/slices/currentWeatherSlice";
+import { fetchMonthWeatherSucces } from "../../store/slices/monthWeatherSlice";
+import { useDispatch } from "react-redux";
 
 export const Header = () => {
   const theme = useTheme();
 
   const options = [
-    { value: "city-1", label: "Белгород" },
-    { value: "city-2", label: "Москва" },
-    { value: "city-3", label: "Воронеж" },
+    { value: "Belgorod", label: "Белгород" },
+    { value: "Moscow", label: "Москва" },
+    { value: "Voronezh", label: "Воронеж" },
   ];
 
   const colourStyles = {
@@ -29,13 +32,17 @@ export const Header = () => {
       color: theme.theme === "dark" ? "#fff" : "#000",
     }),
   };
-  const [selectedOption, setSelectedOption] = useState(null);
+  const dispatch = useDispatch();
+  const changeCity = (value) => {
+    storage.setItem("city", value);
+    dispatch(fetchCurrentWeatherSucces(value.value));
+    dispatch(fetchMonthWeatherSucces(value.value));
+  };
 
   function changeTheme() {
     theme.setTheme(theme.theme === "light" ? "dark" : "light");
   }
 
-  
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -48,8 +55,8 @@ export const Header = () => {
         </div>
         <div>
           <Select
-            defaultValue={options[0]}
-            onChange={setSelectedOption}
+            defaultValue={storage.getItem("city")}
+            onChange={(value) => changeCity(value)}
             options={options}
             styles={colourStyles}
           />

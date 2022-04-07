@@ -7,16 +7,14 @@ import { ThemeProvider } from "./provider/ThemeProvider";
 import { store } from "./store/store";
 import "./styles/index.css";
 
-
-
 ReactDOM.render(
   <React.StrictMode>
-  <Provider store={store}>
-    <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

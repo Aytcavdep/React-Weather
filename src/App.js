@@ -6,22 +6,20 @@ import { MonthStatistics } from "./pages/MonthStatistics/MonthStatistics";
 import { Header } from "./shared/Header/Header";
 import { Popup } from "./shared/Header/Popup/Popup";
 import { fetchCurrentWeatherSucces } from "./store/slices/currentWeatherSlice";
+import { fetchMonthWeatherSucces } from "./store/slices/monthWeatherSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.dayWeather.loading);
+  const cityChange = useSelector((state) => state.dayWeather.city);
 
-  const dispatch = useDispatch()
-  const loading = useSelector(state => state.dayWeather.loading)
-
-  
-
-useEffect(() => {
-dispatch(fetchCurrentWeatherSucces('paris'))
-}
-, [])
-if (loading) return (<div>Loading</div>);
+  useEffect(() => {
+    dispatch(fetchCurrentWeatherSucces(cityChange));
+    dispatch(fetchMonthWeatherSucces(cityChange));
+  }, []);
+  if (loading) return <div>Loading</div>;
 
   return (
-    
     <div className="global-container">
       {/* <Popup /> */}
       <div className="container">

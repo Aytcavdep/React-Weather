@@ -6,24 +6,26 @@ import { useSelector } from "react-redux";
 export const ThisDayInfo = () => {
   const weather = useSelector((state) => state.dayWeather.dayWeather);
   const { temp, humidity, pressure, feels_like } = weather.main;
-  const {speed} = weather.wind;
+  const { speed } = weather.wind;
 
   if (weather) {
     const items = [
       {
         icon_id: "temp",
         name: "Температура",
-        value: `${temp}° - ощущается как ${feels_like}°`,
+        value: `${Math.floor(temp)}° - ощущается как ${Math.floor(
+          feels_like
+        )}°`,
       },
       {
         icon_id: "pressure",
         name: "Давление",
-        value: `${pressure}`,
+        value: `${pressure} мм.рт.ст.`,
       },
       {
         icon_id: "precipitation",
         name: "Влажность",
-        value: `${humidity}%`,
+        value: `${humidity} %`,
       },
       {
         icon_id: "wind",
@@ -34,13 +36,12 @@ export const ThisDayInfo = () => {
 
     return (
       <div className={s.this_day_info}>
-       <img className={s.cloud_img} src={cloud} alt="Облако" />
+        <img className={s.cloud_img} src={cloud} alt="Облако" />
         <div className={s.this_day_info_items}>
           {items.map((item) => (
             <ThisDayItem key={item.icon_id} item={item} />
           ))}
         </div>
-       
       </div>
     );
   }

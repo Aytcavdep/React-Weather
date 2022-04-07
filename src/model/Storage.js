@@ -1,6 +1,3 @@
-import { useContext } from "react";
-
-
 export const storage = {
   setItem: (name, item) => {
     localStorage.setItem(name, JSON.stringify(item));

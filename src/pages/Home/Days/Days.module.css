@@ -2,7 +2,7 @@
 
 .days {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   flex-wrap: wrap;
   padding: 20px;
   width: 100%;
@@ -22,6 +22,8 @@
   width: 149px;
   transition: 0.3s;
   cursor: pointer;
+  margin-bottom: 7px;
+  margin-left: 15px;
 }
 
 .card > .day {
