@@ -3,7 +3,7 @@ export const storage = {
     localStorage.setItem(name, JSON.stringify(item));
   },
   getItem: (name) => {
-    const item = localStorage.getItem(name);
+    const item = localStorage.getItem(name) ?? JSON.stringify('Moscow')
     if (item) {
       return JSON.parse(item);
     }
