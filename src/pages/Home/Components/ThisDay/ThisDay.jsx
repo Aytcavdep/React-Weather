@@ -1,3 +1,5 @@
+import 'antd/dist/antd.css';
+import { Spin } from "antd";
 import { useSelector } from "react-redux";
 import { GlobalSvgSelector } from "../../../../assets/icons/global/GlobalSvgSelector";
 import { dateConvert } from "../../../../DateConverter/dateConvert";
@@ -28,5 +30,5 @@ export const ThisDay = () => {
         </div>
       </div>
     );
-  return <div>Loading</div>;
+  return <Spin size="large" />;
 };

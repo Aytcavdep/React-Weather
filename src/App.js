@@ -1,3 +1,6 @@
+import 'antd/dist/antd.css';
+import "./styles/index.css";
+import { Spin } from "antd";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
@@ -17,7 +20,7 @@ function App() {
     dispatch(fetchCurrentWeatherSucces(cityChange));
     dispatch(fetchMonthWeatherSucces(cityChange));
   }, []);
-  if (loading) return <div>Loading</div>;
+  if (loading) return <Spin className="spinner" size="large" />;
 
   return (
     <div className="global-container">

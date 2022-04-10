@@ -19,3 +19,8 @@ background: var(--body-background-default);
 
 }
 
+.spinner {
+  margin: 25% 50%;
+
+}
+

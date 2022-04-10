@@ -1,7 +1,9 @@
+import 'antd/dist/antd.css';
 import { Card } from "./Card";
 import s from "./Days.module.css";
 import { Tabs } from "./Tabs";
 import { useSelector } from "react-redux";
+import { Spin } from "antd";
 
 export const Days = () => {
   const days = useSelector((state) => state.monthWeather.monthWeather.list);
@@ -18,5 +20,5 @@ export const Days = () => {
       </>
     );
   }
-  return <div>Loading</div>;
+  return <Spin className="spinner" size="large" />;
 };
